@@ -1,11 +1,11 @@
 {
-  "name"       : "sfonsave",
+  "name": "sfonsave",
   "displayName": "Sf On Save",
   "description": "On save of a SF file, run an SFDX deploy command",
-  "version"    : "0.0.1",
-  "publisher"  : "codefriar",
-  "author"     : {
-    "name" : "Kevin Poorman",
+  "version": "0.1.0",
+  "publisher": "codefriar",
+  "author": {
+    "name": "Kevin Poorman",
     "email": "kjp@codefriar.com"
   },
   "engines": {
@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url" : "https://github.com/codefriar/SfOnSave.git"
+    "url": "https://github.com/codefriar/SfOnSave.git"
   },
   "bugs": {
     "url": "https://github.com/codefriar/SfOnSave/issues"
@@ -24,33 +24,31 @@
   "activationEvents": [
     "*"
   ],
-  "main"       : "./out/extension",
-  "contributes": {
-
-  },
+  "main": "./out/extension",
+  "contributes": {},
   "configuration": {
-    "type"      : "object",
-    "title"     : "Salesforce On Save Configuration",
+    "type": "object",
+    "title": "Salesforce On Save Configuration",
     "properties": {
       "SfOnSave.sfdxCommand": {
-        "type"       : "string",
-        "default"    : "sfdx force:source:deploy --sourcepath ",
+        "type": "string",
+        "default": "sfdx force:source:deploy --sourcepath ",
         "description": "Command to run on save."
       }
     }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile"          : "tsc -p ./",
-    "watch"            : "tsc -watch -p ./",
-    "postinstall"      : "node ./node_modules/vscode/bin/install",
-    "test"             : "npm run compile && node ./node_modules/vscode/bin/test"
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
-    "typescript"  : "^2.6.1",
-    "vscode"      : "^1.1.21",
-    "tslint"      : "^5.8.0",
-    "@types/node" : "^8.10.25",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.21",
+    "tslint": "^5.8.0",
+    "@types/node": "^8.10.25",
     "@types/mocha": "^2.2.42"
   }
 }
