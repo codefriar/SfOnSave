@@ -1,21 +1,43 @@
 {
   "name"       : "sfonsave",
-  "displayName": "SfOnSave",
-  "description": "Execute command on Save",
+  "displayName": "Sf On Save",
+  "description": "On save of a SF file, run an SFDX deploy command",
   "version"    : "0.0.1",
   "publisher"  : "codefriar",
-  "engines"    : {
+  "author"     : {
+    "name" : "Kevin Poorman",
+    "email": "kjp@codefriar.com"
+  },
+  "engines": {
     "vscode": "^1.28.0"
   },
   "categories": [
     "Other"
   ],
+  "repository": {
+    "type": "git",
+    "url" : "https://github.com/codefriar/SfOnSave.git"
+  },
+  "bugs": {
+    "url": "https://github.com/codefriar/SfOnSave/issues"
+  },
   "activationEvents": [
     "*"
   ],
   "main"       : "./out/extension",
   "contributes": {
 
+  },
+  "configuration": {
+    "type"      : "object",
+    "title"     : "Salesforce On Save Configuration",
+    "properties": {
+      "SfOnSave.sfdxCommand": {
+        "type"       : "string",
+        "default"    : "sfdx force:source:deploy --sourcepath ",
+        "description": "Command to run on save."
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
