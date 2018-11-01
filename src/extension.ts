@@ -16,16 +16,16 @@ export function activate(context: vscode.ExtensionContext) {
 
   vscode.workspace.onDidSaveTextDocument(textDocument => {
     ChildProcess.exec(
-      `${config.sfdxCommand} "${textDocument.fileName}"`,
+      `cd "${vscode.workspace.rootPath}" && ${config.sfdxCommand} "${
+        textDocument.fileName
+      }"`,
       (err, stdout, stderr) => {
-        console.log("stdout: " + stdout);
-        outputChannel.append(stdout);
-        console.log("stderr: " + stderr);
-        outputChannel.append(stderr);
         if (err) {
-          console.log("error: " + err);
           outputChannel.append(stderr);
+        } else {
+          outputChannel.append(stdout);
         }
+        outputChannel.show(true);
       }
     );
   });
